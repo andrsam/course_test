@@ -6,12 +6,6 @@ import java.util.List;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
-/**
- * TODO: comment
- *
- * @author parsentev
- * @since 28.07.2016
- */
 public class CashMachine {
     private static final Logger log = getLogger(CashMachine.class);
 
@@ -23,5 +17,15 @@ public class CashMachine {
 
     public List<List<Integer>> exchange(int note) {
         throw new UnsupportedOperationException();
+    }
+
+    public int[] changeNote(int note) {
+        int[] changes = new int[3];
+        int i = 0;
+        while (note > 0) {
+            note -= values[i] * (changes[i] = Math.floorDiv(note, values[i]));
+            i++;
+        }
+        return changes;
     }
 }
