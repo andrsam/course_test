@@ -37,7 +37,7 @@ public class CashMachineTest {
 
     @Test
     public void change() {
-        CashMachine machine = new CashMachine(new int[] {1, 5, 10});
+        CashMachine machine = new CashMachine(new int[]{10, 5, 1});
         List<List<Integer>> result = machine.exchange(10);
         assertThat(
                 result, is(
